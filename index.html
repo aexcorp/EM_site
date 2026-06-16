@@ -850,6 +850,34 @@
     opacity: 1;
     transform: none;
   }
+
+/* ==========================================================
+   MOBILE & HIGH ZOOM GALLERY FIX
+   Paste this at the very bottom of your existing <style> tag
+   ========================================================== */
+@media (max-width: 768px) {
+  /* 1. Force your gallery grid into a single responsive column */
+  .gallery-grid { 
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: auto !important; /* Overrides fixed desktop row heights */
+    gap: 16px !important;
+  }
+
+  /* 2. Reset your items so multi-column/row spans don't stretch on mobile */
+  .gallery-item {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    border: none !important;
+  }
+
+  /* 3. Stop the "zoomed-in" look and show the full frame */
+  .gallery-item img {
+    width: 100% !important;
+    height: auto !important; /* Forces layout to scale proportionally */
+    object-fit: contain !important; /* Guarantees no edges/frames are clipped */
+  }
+}
+
 </style>
 </head>
 <body>
