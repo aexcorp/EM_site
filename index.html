@@ -680,12 +680,20 @@
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    column-gap: 5rem;
+    row-gap: 2.5rem;
     align-items: start;
     margin-top: 3rem;
   }
+  .form-submit-row {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
   @media (max-width: 720px) {
-    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .contact-grid { grid-template-columns: 1fr; column-gap: 0; }
+    .form-submit-row { grid-column: 1; }
   }
   .contact-item {
     display: flex;
@@ -1197,13 +1205,6 @@
             <label class="form-label" for="f-email">Email address</label>
             <input class="form-input" id="f-email" name="email" type="email" placeholder="you@example.com" required />
           </div>
-
-          <div style="margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
-            <input type="checkbox" name="_suspersus" style="display:none" tabindex="-1" autocomplete="off" />
-
-            <p class="form-note">Messages are transmitted securely via encrypted form handling.</p>
-            <button type="submit" class="btn-primary" style="align-self: flex-start;">Send Inquiry ↗</button>
-          </div>
         </div>
 
         <div class="reveal">
@@ -1232,6 +1233,12 @@
               <textarea class="form-textarea" id="f-message" name="message" placeholder="Any details on the piece, finish preferences, timeline, or questions…" style="min-height: 146px;"></textarea>
             </div>
           </div>
+        </div>
+
+        <div class="form-submit-row">
+          <input type="checkbox" name="_suspersus" style="display:none" tabindex="-1" autocomplete="off" />
+          <p class="form-note">Messages are transmitted securely via encrypted form handling.</p>
+          <button type="submit" class="btn-primary" style="align-self: flex-start;">Send Inquiry ↗</button>
         </div>
 
       </div>
